@@ -31,3 +31,23 @@ title: Andronikova Daria
         </tr>
     </tbody>
 </table>
+
+
+
+<script>
+    var ical = require('date-holidays-ical')()
+
+    // query for available countries
+    var res = ical.query()
+    //> { AD: 'Andorra',
+    //>   ..
+    //>   UY: 'Uruguay' }
+
+    // initialize with country, e.g. Uruguay
+    res = ical.init('UY')
+    //> true
+
+    // get iCal Calender
+    res = ical.calendar(2016)
+
+</script>
