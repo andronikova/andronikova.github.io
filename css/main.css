@@ -86,20 +86,34 @@ ul.posts li {
     vertical-align:top;
     font-size: 1em;
     color:gray;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
     padding:0 15px;
 }
 
 .milestone
 {
     vertical-align:top;
-    font-size: 1em;
+    font-size: 1.2em;
     color:#333;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
 
 }
 
 .table{
     border-spacing: 0 1em;
 
+}
+
+.gray_button {
+  background-color: #F1F3F5;
+  border: none;
+  color: gray;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin: 1px 1px;
+  cursor: pointer;
 }
