@@ -35,9 +35,14 @@
 			<!--to see icons https://fontawesome.bootstrapcheatsheets.com/#-->
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+			<!-- other icon lybrary -->
+			<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 		</head>
-		<body style="margin: 50px auto;">
+		<!--<body>-->
+
+		<body>
+
 
 			<nav class="navbar navbar-expand-md">
 
@@ -45,19 +50,24 @@
             	<span class="navbar-toggler-icon"></span>
         	</button>
 
-			  <div class="collapse navbar-collapse" id="navbar">
-            	<ul class="navbar-nav ml-auto mt-2">
+			  <div class="collapse navbar-collapse" id="navbar" >
+
+				<a class="navbar-brand" href="/" >
+				  <div class="logo-image">
+						<img src="pics/no_bckg_Calisto_MT.svg" style="width:150px;">
+				  </div>
+				</a>
+
+            	<ul class="navbar-nav ml-auto mt-2" style="float:left;">
+
 				  <li class="nav-item">
-					<a class="nav-link" href="/">Home</a>
+					<a class="nav-link" href="/education">EDUCATION</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="/education">Education</a>
+					<a class="nav-link" href="/work">EXPERIENCE</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="/work">Experience</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="/projects">Projects</a>
+					<a class="nav-link" href="/projects">PROJECTS</a>
 				  </li>
 
 				  <li class="nav-item">
@@ -67,7 +77,7 @@
 				  </li>
 
 				  <li class="nav-item">
-					<a class="nav-link" href="/contact">Contact</a>
+					<a class="nav-link" href="/contact">CONTACT</a>
 				  </li>
 
 				</ul>
@@ -86,5 +96,26 @@
 	        		<!--<li><a href="https://github.com/andronikova">github.com/andronikova</a></li>-->
 				<!--</ul>-->
 			<!--</footer>-->
+
+		<script>
+			// When the user scrolls the page, execute myFunction
+			window.onscroll = function() {myFunction()};
+
+			// Get the navbar
+			var navbar = document.getElementById("navbar");
+
+			// Get the offset position of the navbar
+			var sticky = navbar.offsetTop;
+
+			// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+			function myFunction() {
+			  if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky")
+			  } else {
+				navbar.classList.remove("sticky");
+			  }
+			}
+		</script>
+
 		</body>
 	</html>

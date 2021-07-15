@@ -1,14 +1,32 @@
 body {
-    margin: 60px auto;
-    width: 70%;
+    width: 100%;
 }
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-    color:#333;
+
+.navbar{
+    overflow: hidden;
+    background-color: #F1F3F5;
+    top: 10; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+	/* font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; */
+	/* font-family:  "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif; */
+    font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+
+    font-size: 15px;
+    line-height: 30px;
+    font-color:red;
+    }
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  overflow: hidden;
+  position: fixed;
+  background-color: #F1F3F5;
+  top: 10;
+  width: 100%;
+
 }
+
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
@@ -17,32 +35,32 @@ nav ul li, footer ul li {
 
 a.nav-link{
     color:black;
+
 }
 
 
 a {
     text-decoration: none;
-    color: #999;
+    color: black;
 }
 a:hover {
     text-decoration: underline;
 }
-h1 {
+/*h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
+}*/
 
-h4 {
+/*h4 {
     font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: #333;
 }
 
 h5 {
     font-size: 0.8em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: #333;
-}
+}*/
 
 p {
     font-size: 1.5em;
