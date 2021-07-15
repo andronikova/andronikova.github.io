@@ -1,9 +1,12 @@
-My personal page. Contain following information:
+# My personal page. 
+
+Contain following information:
 - education;
 - work experience;
 - my projects;
 - contact.
 
 
-Made with Jekyll site-generator
+Made using Jekyll site-generator on github Pages.
+
 
