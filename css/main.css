@@ -39,10 +39,10 @@ a.nav-link{
 }
 
 
-a {
+/*a {
     text-decoration: none;
     color: black;
-}
+}*/
 a:hover {
     text-decoration: underline;
 }
@@ -62,11 +62,12 @@ h5 {
     color: #333;
 }*/
 
-p {
+/*p {
     font-size: 1.5em;
     line-height: 1.4em;
     color: #333;
-}
+}*/
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
@@ -133,7 +134,7 @@ section{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
 }
 
 .item {
