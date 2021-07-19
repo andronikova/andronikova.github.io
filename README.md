@@ -11,4 +11,6 @@ Contain following information:
 
 Made using Jekyll site-generator on github Pages.
 
+Template for project page: [https://codepen.io/schlenges/pen/erdpoZ](https://codepen.io/schlenges/pen/erdpoZ).
+
 
