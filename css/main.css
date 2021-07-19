@@ -71,6 +71,8 @@ h5 {
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
+    color: #FFFFFF;
+    background-color: #222f5b;
 }
 
 ul.posts {
