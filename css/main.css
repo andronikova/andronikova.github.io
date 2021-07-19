@@ -121,7 +121,10 @@ ul.posts li {
   cursor: pointer;
 }
 
-
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------*/
 /*for projects page*/
 section{
   display: flex;
@@ -163,8 +166,29 @@ section{
 .img_projects {
   max-width: 100%;
   vertical-align: top;
-  height: 250px;
+  height: 260px;
 }
+
+.img-container{
+  width: 100%; /*any size*/
+  height: 450px; /*any size*/
+
+}
+
+.img_projects_learn_more_view{
+  width: auto;
+  height: 100%;
+  object-fit: cover; /*magic*/
+
+}
+
+/*
+#img{
+  width: 100%;
+  height: 450px;
+}
+*/
+
 
 .item:hover img {
   opacity: 0;
@@ -176,7 +200,7 @@ section{
   position: absolute;
   top: -100px;
   left: 10%;
-  color: #01A2AC;
+  color: #222f5b;
 }
 
 .text h3{
@@ -196,15 +220,15 @@ section{
   bottom: -100px;
   left: 25%;
   width: 50%;
-  border: 3px solid #01A2AC;
+  border: 3px solid #222f5b;
   padding: 15px;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 }
 
 .button:hover{
-  background-color: #01A2AC;
-  color: #F5F5F5;
+  background-color: #222f5b;
+  color: #222f5b;
 }
 
 /* Modal */
@@ -222,11 +246,11 @@ section{
 }
 
 .modal-content {
-  background-color: #F5F5F5;
+  background-color:#222f5b;
   margin: 5% auto;
   box-sizing: border-box;
   width: 700px;
-  max-height: 714px;
+  max-height: 1014px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -240,18 +264,14 @@ section{
   to{transform: scale(1);}
 }
 
-#img{
-  width: 100%;
-  height: 450px;
-}
 
 #details{
   padding: 25px;
   text-align: left;
   position: relative;
-  height: 264px;
+  height: 350px;
   box-sizing: border-box;
-  border-top: 1px solid #363638;
+  border-top: 1px solid #222f5b;
 }
 
 #details *{
@@ -266,7 +286,7 @@ section{
 #details .button{
   position: absolute;
   width: 30%;
-  background-color: #01A2AC;
+  background-color: #222f5b;
   color: #F5F5F5;
   text-align: center;
   left: 25px;
@@ -279,7 +299,7 @@ section{
   bottom: 30px;
   right: 25px;
   font-size: 3rem;
-  color: #01A2AC;
+  color: #222f5b;
 }
 
 #details .button:hover,
@@ -299,7 +319,7 @@ i:hover{
 
 .close:hover,
 .close:focus {
-  color: #363638;
+  color: #222f5b;
   text-decoration: none;
   cursor: pointer;
 }
