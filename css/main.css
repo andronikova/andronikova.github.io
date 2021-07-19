@@ -124,7 +124,7 @@ ul.posts li {
 /*------------------------------------------------------*/
 /*------------------------------------------------------*/
 /*------------------------------------------------------*/
-/*------------------*/
+
 /*for projects page*/
 section{
   display: flex;
@@ -164,20 +164,24 @@ section{
 }
 
 .img_projects {
-  max-width: 100%;
+  max-width: auto;
   vertical-align: top;
-  height: 260px;
+  height: 230px;
+/*
+  height: 10%;
+*/
+/*  object-fit: cover;*/
 }
 
 .img-container{
-  width: 100%; /*any size*/
-  height: 450px; /*any size*/
-
+  width: 60%; /*any size*/
+  height: 100%; /*any size*/
+  margin:auto;
 }
 
 .img_projects_learn_more_view{
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: cover; /*magic*/
 
 }
@@ -201,6 +205,7 @@ section{
   top: -100px;
   left: 10%;
   color: #222f5b;
+
 }
 
 .text h3{
@@ -250,7 +255,8 @@ section{
   margin: 5% auto;
   box-sizing: border-box;
   width: 700px;
-  max-height: 1014px;
+  height: 80%;
+  overflow: scroll;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -269,7 +275,7 @@ section{
   padding: 25px;
   text-align: left;
   position: relative;
-  height: 350px;
+  height: 450px;
   box-sizing: border-box;
   border-top: 1px solid #222f5b;
 }
