@@ -252,10 +252,10 @@ section{
 
 .modal-content {
   background-color:#222f5b;
-  margin: 5% auto;
+  margin: auto;
   box-sizing: border-box;
   width: 700px;
-  height: 80%;
+  height: 100%;
   overflow: scroll;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
@@ -272,7 +272,7 @@ section{
 
 
 #details{
-  padding: 25px;
+  padding: 100px;
   text-align: left;
   position: relative;
   height: 450px;
@@ -295,7 +295,7 @@ section{
   background-color: #222f5b;
   color: #F5F5F5;
   text-align: center;
-  left: 25px;
+  left: 100px;
   bottom: 35px;
   padding: 15px;
 }
@@ -303,7 +303,7 @@ section{
 #details i{
   position: absolute;
   bottom: 30px;
-  right: 25px;
+  right: 100px;
   font-size: 3rem;
   color: #222f5b;
 }
