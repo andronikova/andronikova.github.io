@@ -329,3 +329,18 @@ i:hover{
   text-decoration: none;
   cursor: pointer;
 }
+
+
+h4.article{
+    display:inline;
+    width:100%;
+    text-align:left;
+
+}
+
+
+p.quote{
+    margin:0px 5px 5px 200px;
+
+
+}
