@@ -8,11 +8,11 @@ title: The Office data analysis
 <br>
 <p class="quote"> <em>“Sometimes I’ll start a sentence, and I don’t even know where it’s going. I just hope I find it along the way.” - Michael Scott</em></p>
     <!--<p  style="float:right;">Michael Scott</p>-->
-<br><br><br>
+<br>
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">Short project description and motivation</h4>
-
+<!--<h4 class="article">Short project description and motivation</h4>-->
+<!--<p class="quote"> <em>"“And I knew exactly what to do. But in a much more real sense, I had no idea what to do."</em> - Michael Scott</p>-->
 <p>
 This project is about "The Office", American sitcom showing everyday life of a typical office.
 One who saw this sitcom probably noticed that engagement and hilarity of episodes are not constant in time and slowly degrade through seasons.
@@ -75,7 +75,7 @@ All remaining properties were used in episode characterization.
 <!--//////////////////////////////////////////////-->
 <h4 class="article">Feature engineering using script</h4>
 
-<p class="quote"> <em>“Okay, too many different words from coming at me from too many different sentences.”</em> - Michael Scott</p>
+<p class="quote"> <em>“Okay, too many different words coming at me from too many different sentences.”</em> - Michael Scott</p>
 
 <p>
     At this step I used script information (lines of each character in each episodes) to extract some meaningful features which could help to characterize each episode.
@@ -129,11 +129,11 @@ for season in range(1,10):
     It means, in double episode characters do not speak twice as much as in normal, but slightly less.
 </p>
 
-<img src="pics/office/words_hist.png" style="width:50%;">
+<img class="article" src="pics/office/words_hist.png" style="width:50%;">
 
 <p style="display:inline; width:100%; text-align:left">Another interesting feature is the number of words for each character. Below total number of words across all episodes is shown for most talkative characters.</p>
 
-<img src="pics/office/total_words_for_characters.png" style="width:50%;">
+<img class="article" src="pics/office/total_words_for_characters.png" style="width:50%;">
 
 <p>
    It is clear, that Michael is champion in talking. Even though Michael has been absent for two seasons, he talks much more than characters present all the time.
@@ -178,14 +178,14 @@ One can clearly see that share of airtime when Michael speaks decreases almost l
     Only during two last seasons Dwight and Andy involvement increased drastically in an attempt to fill in the emptiness after Michael's leaving.
 </p>
 
-<img src="pics\office\freaction_of_words_for_seasons.png" style="width:50%;">
+<img class="article" src="pics\office\freaction_of_words_for_seasons.png" style="width:50%;">
 
 <p>
     It was also interesting to me, how the number of words for each characters correlates with the number of words for other characters.
     Visualization of correlation matrix is shown below for 20 most talkative characters.
 </p>
 
-<img src="pics/office/corr_characters_words.png" style="width:90%;">
+<img class="article" src="pics/office/corr_characters_words.png" style="width:90%;">
 
 <p>
     The first thing that catches my eye is that Michael has mostly zero or negative correlations with people.
@@ -200,7 +200,9 @@ One can clearly see that share of airtime when Michael speaks decreases almost l
     In season 2 and 4 the speech of Dwight occupies approximately the same part of the episode and doesn't correlate with Michael words
 </p>
 
-<img src="pics/office/Michael_Dwight_words.png" style="width:90%;">
+<img class="article" src="pics/office/Michael_Dwight_words.png" style="width:90%;">
+<br>
+<img class="article" src="pics/office/Michael_Dwight_words_2.png" style="width:90%;">
 
 <p>
     Another feature that could be important in rating prediction is number of dialogues between characters.
@@ -303,6 +305,277 @@ Let's look how dialogues change with the time.
 
 </p>
 
+
+<img class="article" src="pics/office/dialog_properties.png" style="width:90%;">
+
+<p>
+    Keeping in mind Michael's talkativeness one could expect all Michael's dialogues to be on the top of the list.
+    But the second and the third most common dialogues are with  Jim.
+    This is probably because Michael speaks a lot by himself and less in dialogues (a negative correlations of spoken words between Michael and other characters proofs this explanation).
+</p>
+
+<img class="article" src="pics/office/total_number_of_lines_dialog.png" style="width:90%;">
+
+<p>
+    Using dialog information we can have some conclusion about characters' relationships.
+    For this I drew chord diagram of dialog lengths between characters, where width of lines represents number of lines.
+    You can see below my code for creation chord diagram. At first step I saved dialog information in graph format.
+    For simplicity  and readability I used threshold by 5% of the longest dialog (between Michael and Dwight),
+    so, you see only dialog with total lines more than 113.
+    The second part is drawing the chord diagram using <a href="https://github.com/ericmjl/nxviz">nxviz library</a>.
+
+</p>
+
+<pre><code class="language-python">
+# creating graph where nodes are characters, edges - dialogues between them
+P = nx.Graph()
+
+treshold = 0.05 * df.Dwight_Michael_dialog.sum()
+arr = []
+
+for name in characters[:20]:
+    P.add_node(name)
+
+    for cols in characters_dialog_non_zero:
+        # choose only one of the 20 main characters
+        if name in cols:
+            other_name = cols.replace(name,'').replace('_dialog','').replace('_',"")
+
+            if other_name in characters[:20]:
+                # claculate weigth as sum of all lines in all dialogues
+                weight = df.sum()[cols]
+
+                # add to graph only relatively long dialog
+                if weight > treshold:
+                    P.add_edge(name, other_name, weight = weight)
+                    arr.append(df.sum()[cols])
+
+# rescaling weight
+for u,v in P.edges:
+    P[u][v]['weight_scaled'] = P[u][v]['weight']/100
+
+# creating properties for nodes
+for v in P:
+    P.nodes[v]["name"] = v
+    P.nodes[v]["size"] = 0.5
+    P.nodes[v]["group"] = groups[v]
+</code></pre>
+
+
+<pre><code class="language-python">
+# drawning the chord diagramsave
+fig, ax = plt.subplots(figsize=(12,12))
+
+pos = nv.nodes.circos(P, group_by='name',size_by='size',color_by='group')
+annotate.circos_labels(P, group_by='name')
+
+nv.edges.circos(P, pos)
+
+# edge style
+et = nv.utils.edge_table(P)
+edge_color = nv.edges.edge_colors(et, nt=None, color_by=None, node_color_by=None)
+alpha = nv.edges.transparency(et, alpha_by=None)
+
+
+patches = nv.lines.circos( et, pos, edge_color=edge_color, alpha=alpha, lw=et["weight_scaled"], aes_kw={"fc": "none"} )
+for patch in patches:
+    ax.add_patch(patch)
+
+nv.plots.rescale(P)
+nv.plots.aspect_equal()
+nv.plots.despine()
+</code></pre>
+
+<p>
+    Color denotes groups of characters divided by the number of words spoken: green - Michael, yellow - other main characters (total number of spoken words more than 40000),
+    lilac - secondary characters with almost equal number of spoken words (about 10000), red - secondary characters with number of total words less than 9000.
+</p>
+
+<img class="article" src="pics/office/chord_dialog.png" style="width:90%;">
+
+<p>
+    The most social person again is Michael.
+    Most of Michael dialogues happen with Dwight. With Jim or Pam he talks twice less than with Dwight.
+    Among secondary characters most popular conversation partners for Michael are Jan and Holly.
+</p>
+
+<p>
+    After Michael the most active connections are dialogues of Jim with Pam and Dwight.
+    Having such active dialogues with Pam and Dwight Jim is quite uncommunicative with other collegues.
+    Dwight and Andy are more social active, having a lot of connections with secondary characters.
+    It is also funny to note, that Toby performs duties of human resource representative very poorly,
+    having conversations only with his boss.
+</p>
+
+<p>
+    As a matter of idle interest I tried to understand the nature of each character by her words.
+    For this I counted appearance of some words in character's speech and normalized it by total words said by the character.
+    By doing this I could see what fraction of character's speech is taken up by the words.
+</p>
+
+<img class="article" src="pics/office/words_characters.png" style="width:90%;">
+
+<p>
+    By counting appearances of 'sorry' I found out that Erin is the most apologizing character.
+    By counting appearances of 'thank' I tried to find most polite character, and it was Angela (or probably I just found the most passive-aggressive character).
+    Title of the most rude character goes to Meredith and Kelly.
+    Surprisingly, Stanley is the one who talks the most about work and day to day duty (I mean paper).
+    It is not that unexpected actually since Stanley doesn't talk about his private life and work is the only thing that unites him with the others.
+    Oscar, as a responsible accountant, talks about money a lot. Women are in the lead when it comes to talking about love, but most romantic among them is Holly.
+    Finally, Jan is the one obsessed the most about Michael (Phyllis, what are you doing in the second place?).
+
+</p>
+
+<p>
+    Another way of character's characterization is to count most distinctive words they used.
+    Simple counting of word's frequency will not be so informative here, since each character probably will have the same most frequent word (such as 'know', 'okay', 'right).
+    I used tf-idf <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">(term frequency-inverse document frequency)</a> algorithm to find out words typical only to the character.
+    For example, most frequent character's word used a lot by other characters would have really low tf-idf score, while word used only by this character will have high tf-idf score.
+    Shown below are word clouds of most distinctive words used by main characters, with the size of word being correspondent to its tf-idf score.
+
+</p>
+
+<div class="row">
+  <div class="col-sm">
+      <img class="article" src="pics/office/Michael_world_cloud.png" style="width:90%;">
+  </div>
+  <div class="col-sm">
+      <img class="article" src="pics/office/Dwight_world_cloud.png" style="width:90%;">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm">
+      <img class="article" src="pics/office/Pam_world_cloud.png" style="width:90%;">
+  </div>
+  <div class="col-sm">
+      <img class="article" src="pics/office/Jim_world_cloud.png" style="width:90%;">
+  </div>
+</div>
+
+<p>
+I didn't show here all the features I extracted. If you are interested in details, pleace, look at jupyter notebook (link).
+The other features I calculated was:
+</p>
+
+
+<span style="display:inline; width:100%; text-align:left">
+    <ul>
+        <li>how much one character pronounces the name of other (i made this only for Michael, Jam and Pam).</li>
+        <li>appearance of some words in the script</li>
+        <li>appearance of the joke "that's what she said"</li>
+        <li>counting the director's instructions (such as laughing, crying and so on)</li>
+    </ul>
+</span>
+
+
+
+
+
+<!--//////////////////////////////////////////////-->
+<h4 class="article">What influences the rating the most?</h4>
+
+<p class="quote"> <em>“Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.”</em> - Michael Scott</p>
+
+<p>
+    Before answering that question let's look at the rating distribution.
+    Histogram of ratings seems to be symmetric with distinctive tails.
+    There are no outliers in this distribution. Mean rating is about 8.2, median is the same.
+    Time evolution of ratings shows a clear maximum for 3 and 4 season and quite remarkable decline in 8 and 9 seasons.
+</p>
+
+<div class="row">
+  <div class="col-sm">
+      <img class="article" src="pics/office/rating_hist.png" style="width:90%;">
+  </div>
+  <div class="col-sm">
+      <img class="article" src="pics/office/rating_season.png" style="width:90%;">
+  </div>
+</div>
+
+<p style="display:inline; width:100%; text-align:left">
+    Let's calculate correlation with rating for each feature discussed before.
+    Only strong correlations are shown below:
+</p>
+
+<p style="color:red; display:inline; width:100%; text-align:left">
+    0.426 Michael_words<br>
+    0.369 double<br>
+    0.32 words<br>
+    0.315 crying<br>
+    0.229 director_Paul_Feig<br>
+    0.221 writer_Greg_Daniels<br>
+    0.205 sigh<br>
+    0.204 Michael_about_Jan<br>
+</p>
+<p style="color:blue; display:inline; width:100%; text-align:left">
+    -0.216 writer_Owen_Ellickson<br>
+    -0.218 Nellie_Phyllis_dialog<br>
+    -0.225 Andy_Nellie_dialog<br>
+    -0.233 Jim_Nellie_dialog<br>
+    -0.233 director_Claire_Scanlon<br>
+    -0.288 Dwight_Nellie_dialog<br>
+    -0.296 Robert_words<br>
+    -0.302 Andy_Erin_dialog<br>
+    -0.338 Andy_words<br>
+    -0.362 Erin_words<br>
+    -0.425 Nellie_words<br>
+</p>
+
+<p>
+    It seems viewers really like when Michael is talking and equally don't like when Nellie is talking.
+    Erin's and Andy's talking are not highly scored as well.
+    There are high correlations with number of words in episode and the length of episode (double or not).
+    As you can see in the figure below, all double episodes are scored very high.
+    But for normal length episodes there is almost no correlation of the number of words and the rating
+    (df[df.double==0].corr().rating.words = -0.006,  df[df.double==1].corr().rating.words = -0.117).
+
+</p>
+
+<img class="article" src="pics/office/rating_words.png" style="width:50%;">
+
+<p>
+    There are several writers and directors who have strong correlation with ratings.
+    For example, we can conclude that viewers like episodes filmed by Paul Feig very much.
+    As a director he filmed 14 episodes with mean rating 8.7, 12 of them having rating higher than mean value 8.2.
+</p>
+<p style="display:inline; width:100%; text-align:left">>
+    Such actions as crying and sigh also have quite high correlation with rating.
+    Does it mean that viewers like when characters suffer?
+</p>
+
+
+<!--//////////////////////////////////////////////-->
+<h4 class="article">Model for rating's prediction</h4>
+
+<p class="quote"> <em>"This is a dream that I've had…since lunch…and I'm not giving it up now."</em> - Michael Scott</p>
+
+<p>
+    We can finally get to the most interesting part, namely the creation of model to predict rating.
+    The main criteria here for me is the interpretability of the model, so the most obvious choice was regression model.
+    I used statsmodels library with ordinary least squares fitting.
+    To test my model's performance  I split all episodes into training and testing datasets.
+</p>
+
+<p>
+    After extensive feature engineering I had 306 features I could use for model.
+    It is too much to have an easily interpretable model, so I spent some time searching for the most important features.
+    At first I tried to choose features using my domain knowledge and some intuition.
+    Of course I realized that this way is not optimal at all, that's why I also used random forest algorithm as an alternative way to find those features.
+</p>
+
+
+
+
+<img class="article" src="" style="width:90%;">
+
+
+<pre><code class="language-python">
+
+</code></pre>
+
+
+<img src="" style="width:90%;">
 
 
 <p></p>

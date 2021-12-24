@@ -338,6 +338,9 @@ h4.article{
 
 }
 
+img.article{
+    margin: 10px 5px 10px 50px
+}
 
 p.quote{
     margin:0px 5px 5px 200px;
