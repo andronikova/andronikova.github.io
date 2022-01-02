@@ -539,7 +539,7 @@ The other features I calculated was:
     For example, we can conclude that viewers like episodes filmed by Paul Feig very much.
     As a director he filmed 14 episodes with mean rating 8.7, 12 of them having rating higher than mean value 8.2.
 </p>
-<p style="display:inline; width:100%; text-align:left">>
+<p style="display:inline; width:100%; text-align:left">
     Such actions as crying and sigh also have quite high correlation with rating.
     Does it mean that viewers like when characters suffer?
 </p>
@@ -565,17 +565,155 @@ The other features I calculated was:
 </p>
 
 
+<h6 style="display:inline; width:100%; text-align:left">Choosing by hand</h6>
+<p>Main selection criteria were correlation with rating and number of appearances in episodes.
+    I chose features with absolute value of correlation coefficient higher than 0.1 and which appear in at least 60 episodes (2/3 of total number of episodes).
+    The latter rule I violated in case of directors and writers having high negative correlation coefficient, since such authors work only on few episodes. </p>
+<p>After collection of all features satisfying these criteria, I checked them for inter-correlation and deleted some.
+    The remaining features were:
+    <em>double, what_she_said, leaving, party, meeting, news, crying, sigh, kiss, director_Paul_Feig, director_Ken_Kwapis, writer_Charlie_Grandy, Michael_words,
+        Creed_words, Jim_about_Pam, Jim_about_Dwight.</em>
+</p>
+<p>
+    These features were used in linear regression model with target value 'rating'.
+    Linear regression model was fitted with R square=0.433, root mean square error computed for test data was 0.456.
+    Distribution of residuals was shifted to positive values reflecting tendency of predicted values to be higher than real.
+    Another drawback of this set of features is high p-value of some of them underlining that regression coefficients of those features was probably chosen by chance.
+</p>
 
 
-<img class="article" src="" style="width:90%;">
+<img class="article" src="pics/office/model_by_hand.png" style="width:90%;">
+<p>I excluded features with high p-value and this cleaning slightly reduced R square and improved RMSE (0.445).
+    Fitted coefficients:
+</p>
+
+<table style="display:inline; width:100%; text-align:left">
+    <tbody>
+        <tr> <td>leaving</td> <td>4.208669</td> </tr>
+        <tr> <td>double</td> <td>0.545382</td> </tr>
+        <tr> <td>crying</td> <td>0.113989</td> </tr>
+        <tr> <td>Jim_about_Dwight</td> <td>0.097600</td> </tr>
+        <tr> <td>Michael_words</td> <td>0.014956</td> </tr>
+        <tr><td>news</td><td>-1.546528</td></tr>
+        <tr><td>Intercept</td><td>7.649490</td></tr>
+    </tbody>
+</table>
+<br>
+<p>So, in this model the rating value is mostly defined by how much word "leaving" was used in character's speech.
+    It is also quite important for high rating for word 'news' to be used as little as possible.
+    Double episodes have higher rating. And it seems very important for an episode to include crying.
+    Although the model has a pretty good predictive power (up to half of score accuracy),
+    the strong dependence on the use of specific words seems very suspicious and not much explaining to me.
+    That's why I used random forest algorithm to find better optimized set of features.
+</p>
+
+<h6 style="display:inline; width:100%; text-align:left">Using random forest to select features</h6>
+<p>
+    I used random forest from sci-kit learn library.
+    All 306 features were used as input in the model.
+    Random forest algorithm provides quite the same RMSE (0.448),
+    distribution of residuals is not offset with respect to zero but has long tail at negative values meaning that we underestimate rating for several episodes.
+</p>
+
+<img class="article" src="pics/office/tandom_forest_results.png" style="width:90%;">
+
+<img class="article" src="pics/office/feature_importance.png" style="width:90%;">
+
+<p>
+    Among most important features were the total number of words and the number of Michael words.
+    I took 6 most important features for regression model and ended up with RMSE 0.44 and quite symmetric but a little shifted residuals.
+</p>
+
+<img class="article" src="pics/office/final_model_results.png" style="width:90%;">
+
+<table style="display:inline; width:100%; text-align:left">
+    <tbody>
+        <tr> <td>crying</td> <td>0.131839</td> </tr>
+        <tr> <td>Nellie_words</td> <td>-0.048064</td> </tr>
+        <tr> <td>Andy_words</td> <td>-0.010342</td> </tr>
+        <tr> <td>laughing</td> <td>0.008227</td> </tr>
+        <tr> <td>Michael_words</td> <td>0.007703</td> </tr>
+        <tr> <td>words</td> <td>0.000186</td> </tr>
+        <tr> <td>Intercept</td> <td>7.476538</td> </tr>
+    </tbody>
+</table>
+
+<p>
+    So, the results are quite funny: to have high rating episode should contain a lot of crying  and laughing, there should be Michael but not Nellie or Andy.
+    To find the best episode according to this model I applied filter maximizing crying in episode.
+    It appears to be episodes with Michael leaving and final episode. Both of them have really high rating.
+</p>
+
+<img class="article" src="pics/office/max_crying.png" style="width:90%;">
+
+<!--//////////////////////////////////////////////-->
+<h4 class="article">Final notes</h4>
+<p class="quote"> <em>"I am running away from my responsibilities. And it feels good."</em> - Michael Scott</p>
+
+<p>
+    Of course, my analysis does not pretend to be complete and deep.
+    Many other episode's properties can influence the rating, for example number of good jokes or dramatic plot twists.
+    But I am happy with my results, since using only simple word counting I was able to predict episode rating with quite good accuracy.
+</p>
+
+<p>
+    At the end, we are able to name most important features of episode, influencing rating.
+    They include how much characters cry and laugh in the episode, number of words, how much Michael talks and how less Nellie and Andy talk.
+</p>
+
+<p style="display:inline; width:100%; text-align:left">
+    Obtained equation of episode rating is follow:
+</p>
+
+<p>
+    rating = 7.477 + 0.123 * crying - 0.048 * Nellie_words - 0.01 * Andy_words + 0.008 * laughing + 0.0077  * Michael_words + 0.000186 * words.
+</p>
+
+<p>
+    Using this equation one can try to construct ideal episode scored as 10/10 by viewers.
+The method is simple - maximize the parameters with a positive coefficients and minimize the parameters with negative coefficients.
+</p>
+
+<p>
+Let's start by putting Nellie_words and Andy_words to zero.
+    Assume that "Goodbye, Michael" and "Finale" are episodes with maximum  allowable amount of tears, so, crying would be equal to 6.
+    Maximum 'laughing'  appeared in 'Christmas Wishes' episode and was 23. I didn't want to be unrealistic and put laughing = 25.
+    Maximum words number appeared in episode was 6029 (it was double episode), so, let's put words = 6000.
+    Recall, that "Michael_words" feature shows what proportion of the words in the episode were said by Michael.
+    I suggest choosing the maximum possible number, i.e. 100% of the words in episode are said by Michael.
+    So, we can calculate rating of the best episode now:
+</p>
+
+<p>
+    rating = 7.477 + 0.123 * 6 - 0.048 * 0 - 0.01 * 0 + 0.008 * 25+ 0.0077  * 100 + 0.000186 * 6000 = 10.3
+</p>
+
+<p>
+    The episode appeared to be too good and had 10.3 out of 10.
+    To adjust this value, we can reduce some features values.
+    In order to make the episode realistic lets's reduce Michael word and add some Andy word.
+    Episode with 70% of Michael (maximum value appeared in episode was 65%) words and 5% of Andy words received 10 rating.
+</p>
+
+<p>
+    rating = 7.477 + 0.123 * 6 - 0.048 * 0 - 0.01 * 5 + 0.008 * 25+ 0.0077  * 70 + 0.000186 * 6000 = 10.02
+</p>
+
+<p>
+    To sum up, the ideal episode will be double episode, containing a lot of Michael (70% of talking will be done by Michael),
+    a lot of laughing and crying (probably most of them would be done by Michael) and just a little bit of Andy (only 5% of talking).
+One can choose several combinations of parameters that satisfy the highest rating.
+    So, my recipe is not  unique and you can try to construct ideal episode by yourself.
+</p>
 
 
-<pre><code class="language-python">
 
-</code></pre>
-
-
-<img src="" style="width:90%;">
+<!--<img class="article" src="" style="width:90%;">-->
 
 
-<p></p>
+<!--<pre><code class="language-python">-->
+<!--</code></pre>-->
+
+
+
+<!--<p></p>-->
