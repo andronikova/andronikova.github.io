@@ -6,7 +6,68 @@ title: Experience | Andronikova Daria
 <table class="table">
     <tbody>
         <tr>
+            <td class="milestone">
+                <span style="font-size: 1.1em;">Self education</span>
+                <br>
 
+                <button class='gray_button' id="toggle4" title="Press to see additional information." style="float:left;">more info</button>
+                <!--<span style="color:gray; font-size:0.9em; margin-left:50px;">Ioffe Institute, St.Petersburg, Russia</span>-->
+
+                <div style="display:none; color:black;" class="togg3">
+                    <br><br>
+                    Time of to find career path, move to Germany and prepare myself for Data Analytic job.
+                    <br><br>
+                    <span style="color:gray;">Achievements:</span>
+                    <br>
+                    ⋄  Designing my own <a href="projects">projects</a>
+                    <br>
+                    ⋄  Taken online courses:
+                    <ul>
+                        <li>2021 - Python for Data Science and Machine Learning Bootcamp <button class='gray_button' style="float:right;">
+                                        <a href="https://ude.my/UC-be2b5165-943b-41e3-9ebf-abd248d8353f/">certificate</a>
+                            </button>
+                            <br>
+                            <span style="color:gray;">✓ Learned:</span> how to use Python to analyze data, create visualizations, and use machine learning algorithms.
+                            <br>
+                            <span style="color:gray;">✓ Skills:</span> Jupyter notebook, NumPy, Pandas, Seaborn, Matplotlib, Plotly, Scikit-Learn, Machine Learning, Tensorflow
+
+                        </li>
+                        <br>
+                        <li>
+                             2021 - CS50's Introduction to Artificial Intelligence with Python <span style="color:gray;">(Harvard University)</span>
+                            <button class='gray_button' style="float:right;">
+                                    <a href="https://certificates.cs50.io/bc25c157-a17e-453b-8522-fc4969af3514.pdf?size=letter">certificate</a>
+                            </button>
+                            <br>
+                            <span style="color:gray;">✓ Learned:</span> the concepts and algorithms at the foundation of modern artificial intelligence, experience in libraries for machine learning as well as knowledge of artificial intelligence principles.
+                            <br>
+                            <span style="color:gray;">✓ Skills:</span> Python, Scikit-Learn, Machine Learning, Tensorflow
+                        </li>
+                        <br>
+                        <li>
+                            2020 - CS50: Introduction to Computer Science <span style="color:gray;">(Harvard University)</span>
+                            <button class='gray_button' style="float:right;">
+                                <a href="https://certificates.cs50.io/7cf5a400-e95b-428f-b05c-fdc1a463b77f.pdf?size=letter">certificate</a>
+                            </button>
+                            <br>
+                            <span style="color:gray;">✓ Learned:</span> understanding of computer science and programming, concepts like abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web development.
+                            <br>
+                            <span style="color:gray;">✓ Skills:</span> C, Python, SQL, Flask, HTML, JavaScript
+                        </li>
+                    </ul>
+
+                    <!--<br><br>-->
+                    <!--<span style="color:gray;">Used computer skills:</span> Python, Jupyter Notebook, PyCharm, Tableau, HTML, JavaScript, SQL-->
+
+
+                </div>
+
+
+            </td>
+            <td class="date">2020/07 – 2022/01</td>
+        </tr>
+
+        <tr>
             <td class="milestone">
                 <span style="font-size: 1.1em;">Junior Scientist</span>
                 <br>
@@ -137,6 +198,11 @@ title: Experience | Andronikova Daria
         <!--for toggle-->
     $(document).ready(function()
     {
+      $("#toggle4").click(function()
+      {
+        $(".togg3").toggle();
+      });
+
       $("#toggle3").click(function()
       {
         $(".togg3").toggle();
