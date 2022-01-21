@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32902e80-a174-48f9-9bd7-158bf52d2214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_123144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_123744.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_125457.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_143727.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_144054.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_144100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_144127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20211116_144133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220112_144732.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220112_144751.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220112_144809.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220112_145846.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220112_150131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/main_photo/IMG_20220121_110625.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,11 +98,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+            <state relative-caret-position="119">
+              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -309,7 +322,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-1088" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info x="515" y="-933" width="672" height="554" id="DB Browser" order="0" sideWeight="0.4795009" side_tool="true" weight="0.17448777" />
       <window_info id="Structure" order="1" sideWeight="0.4508547" side_tool="true" weight="0.14149444" />
@@ -517,11 +529,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+        <state relative-caret-position="119">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
