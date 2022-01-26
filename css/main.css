@@ -77,7 +77,7 @@ footer {
 
 ul.posts {
     margin: 20px auto 40px;
-    font-size: 1.5em;
+    font-size: 14pt;
 }
 
 ul.posts li {
@@ -87,7 +87,7 @@ ul.posts li {
 .date
 {
     vertical-align:top;
-    font-size: 1em;
+    font-size: 1.6em;
     color:gray;
     font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
     padding:0  15px;
