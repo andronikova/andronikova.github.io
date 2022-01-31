@@ -339,7 +339,7 @@ i:hover{
 }
 
 
-h4.article{
+h2.article{
     display:inline;
     width:100%;
     text-align:left;
@@ -354,4 +354,13 @@ p.quote{
     margin:0px 5px 5px 200px;
 
 
+}
+
+pre {
+    font-size: 12pt;
+}
+
+
+p {
+    font-size:14pt;
 }

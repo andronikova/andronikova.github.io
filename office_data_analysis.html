@@ -27,7 +27,7 @@ In this post I will show you my main results and some code I use. To see the det
 <p  style="display:inline; width:100%; text-align:left">P.S. This is learning project, so I didn't check if there is similar analysis on the web and therefore do not claim any priority or uniqueness.</p>
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">Data description and preparation</h4>
+<h2 class="article">Data description and preparation</h2>
 
 <p class="quote"> <em>"Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject. So you know you are getting the best possible information."</em> - Michael Scott</p>
 
@@ -43,7 +43,7 @@ In this post I will show you my main results and some code I use. To see the det
     To summarize, I had following initial data for each episode:
 </p>
 
-<span style="display:inline; width:100%; text-align:left">
+<span style="display:inline; width:100%; text-align:left; font-size:14pt;">
     <ul>
         <li>season, episode number</li>
         <li>title</li>
@@ -73,7 +73,8 @@ All remaining properties were used in episode characterization.
 </p>
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">Feature engineering using script</h4>
+<br><br><br><br>
+<h2 class="article">Feature engineering using script</h2>
 
 <p class="quote"> <em>“Okay, too many different words coming at me from too many different sentences.”</em> - Michael Scott</p>
 
@@ -459,7 +460,7 @@ The other features I calculated was:
 </p>
 
 
-<span style="display:inline; width:100%; text-align:left">
+<span style="display:inline; width:100%; text-align:left; font-size:14pt;">
     <ul>
         <li>how much one character pronounces the name of other (i made this only for Michael, Jam and Pam).</li>
         <li>appearance of some words in the script</li>
@@ -473,7 +474,8 @@ The other features I calculated was:
 
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">What influences the rating the most?</h4>
+<br><br><br><br>
+<h2 class="article">What influences the rating the most?</h2>
 
 <p class="quote"> <em>“Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.”</em> - Michael Scott</p>
 
@@ -546,7 +548,8 @@ The other features I calculated was:
 
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">Model for rating's prediction</h4>
+<br><br><br><br>
+<h2 class="article">Model for rating's prediction</h2>
 
 <p class="quote"> <em>"This is a dream that I've had…since lunch…and I'm not giving it up now."</em> - Michael Scott</p>
 
@@ -565,7 +568,7 @@ The other features I calculated was:
 </p>
 
 
-<h6 style="display:inline; width:100%; text-align:left">Choosing by hand</h6>
+<h3 style="display:inline; width:100%; text-align:left">Choosing by hand</h3>
 <p>Main selection criteria were correlation with rating and number of appearances in episodes.
     I chose features with absolute value of correlation coefficient higher than 0.1 and which appear in at least 60 episodes (2/3 of total number of episodes).
     The latter rule I violated in case of directors and writers having high negative correlation coefficient, since such authors work only on few episodes. </p>
@@ -587,7 +590,7 @@ The other features I calculated was:
     Fitted coefficients:
 </p>
 
-<table style="display:inline; width:100%; text-align:left">
+<table style="display:inline; width:100%; text-align:left; font-size:14pt;">
     <tbody>
         <tr> <td>leaving</td> <td>4.208669</td> </tr>
         <tr> <td>double</td> <td>0.545382</td> </tr>
@@ -626,7 +629,7 @@ The other features I calculated was:
 
 <img class="article" src="pics/office/final_model_results.png" style="width:90%;">
 
-<table style="display:inline; width:100%; text-align:left">
+<table style="display:inline; width:100%; text-align:left; font-size:14pt;">
     <tbody>
         <tr> <td>crying</td> <td>0.131839</td> </tr>
         <tr> <td>Nellie_words</td> <td>-0.048064</td> </tr>
@@ -637,7 +640,7 @@ The other features I calculated was:
         <tr> <td>Intercept</td> <td>7.476538</td> </tr>
     </tbody>
 </table>
-
+<br><br>
 <p>
     So, the results are quite funny: to have high rating episode should contain a lot of crying  and laughing, there should be Michael but not Nellie or Andy.
     To find the best episode according to this model I applied filter maximizing crying in episode.
@@ -647,7 +650,8 @@ The other features I calculated was:
 <img class="article" src="pics/office/max_crying.png" style="width:90%;">
 
 <!--//////////////////////////////////////////////-->
-<h4 class="article">Final notes</h4>
+<br><br><br><br>
+<h2 class="article">Final notes</h2>
 <p class="quote"> <em>"I am running away from my responsibilities. And it feels good."</em> - Michael Scott</p>
 
 <p>
