@@ -148,7 +148,7 @@ section{
   float: left;
   overflow: hidden;
   margin: 10px 1%;
-  min-width: 280px;
+  min-width: 320px;
   max-width: 410px;
   width: 100%;
   text-align: center;
@@ -228,7 +228,7 @@ section{
   left: 25%;
   width: 50%;
   border: 3px solid #222f5b;
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
   font-size:12pt;
