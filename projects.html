@@ -112,7 +112,7 @@ title: Projects | Andronikova Daria
     <div id="preview" class="modal">
       <div class="modal-content">
 
-        <span class="close">&#10006</span>
+
 
 
         <span style="margin:auto; background-color: rgba(0,0,0,0);">
@@ -120,17 +120,20 @@ title: Projects | Andronikova Daria
               <img class='img_projects_learn_more_view' id="img" src="">
           </div>
         </span>
+        <span id="details">
 
+            <span style="display:inline;">
+                    <i class="fa fa-github" id="github" style="display:inline;"></i>
+                    <span class="button" id="live" style="display:inline;">to project page</span>
+                    <span class="close" style="font-size:20pt;display:inline;">&#10006 close</span>
+            </span>
+            <br><br>
 
-        <div id="details">
-          <div class="button" id="live">Go to project page</div>
-          <i class="fa fa-github" id="github"></i>
+            <div class="row">
+                  <h2 id="title"></h2>
+                  <p id="info">Some text</p>
+            </div>
 
-          <h2 id="title"></h2>
-          <p id="info">Some text</p>
-
-          <br><br><br>
-        </div>
 
       </div>
 
@@ -218,8 +221,7 @@ function openModal(project){
 }
 
 function fillOut(id, img){
-  document.getElementById("title").innerHTML = modalInfo[id].title;
-  document.getElementById("info").innerHTML = modalInfo[id].info;
+
   document.getElementById("img").src = img;
   document.getElementById("live").onclick = function(){
     window.open(modalInfo[id].link,'_blank');
@@ -227,6 +229,9 @@ function fillOut(id, img){
   document.getElementById("github").onclick = function(){
     window.open(modalInfo[id].github,'_blank');
   }
+
+  document.getElementById("title").innerHTML = modalInfo[id].title;
+  document.getElementById("info").innerHTML = modalInfo[id].info;
 }
 
 // close the modal
