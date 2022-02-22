@@ -21,8 +21,8 @@ But I ask myself: is it possible to explain episode ratings using data science a
     Can I create a recipe for ideal episode? Those were my motives to start working on this project.
 </p>
 <p>
-In this post I will show you my main results and some code I use. To see the details of data processing and modeling as well as more results,
-    see my <a href="https://github.com/andronikova/the_office_data_analysis/blob/master/FV.ipynb">jupyter notebook</a>.
+In this post I will show you my main results . To see the details of data processing and modeling as well as more results,
+    see my <a href="https://github.com/andronikova/the_office_data_analysis/blob/master/FV.ipynb">Jupyter Notebook</a>.
 </p>
 <p  style="display:inline; width:100%; text-align:left">P.S. This is learning project, so I didn't check if there is similar analysis on the web and therefore do not claim any priority or uniqueness.</p>
 
@@ -32,7 +32,7 @@ In this post I will show you my main results and some code I use. To see the det
 <p class="quote"> <em>"Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject. So you know you are getting the best possible information."</em> - Michael Scott</p>
 
 <p>
-    To predict episode popularity I needed to have information about episode's rating and of course some data on the episode content.
+    To predict episode popularity I needed to have information about episode's rating and some data on the episode content.
     I decided to use <a href="https://www.imdb.com/title/tt0386676/">IMDB</a> rating to characterize score of each episode. <a href="https://www.kaggle.com/bcruise/the-office-episodes-data?select=the_office_episodes.csv">Here</a> I found nice dataset with this information already extracted and saved as .csv.
     To describe each episode I used it's script and names of director and writer who created it.
     I was lucky to find this <a href="https://towardsdatascience.com/python-text-analysis-with-the-schrutepy-package-234bc70f3916">library</a>, called <em>schrute</em>, containing lines of each character for each episode.
@@ -59,17 +59,19 @@ In this post I will show you my main results and some code I use. To see the det
 </span>
 
 <p>
-    Season, episode number, title episode description, air date do not help to construct ideal episode, so I didn't use it in my analysis.
+    I didn't use it in my analysis season and episode number, title episode description, and air date since they do not help to construct ideal episode.
 All remaining properties were used in episode characterization.
 </p>
 
 <p>
-    Main obstacles I faced in data preparation phase was inconsistency in episode numeration in databases. In schrute database all double series count as one. In database with episode rating some double episodes count as one, while others as two.
-    I decided to use schrute numeration since I don't know how to separate script for double episode in two parts (except by doing it by hand).  I merged some episodes in the episode database and changed numeration for the rest.
+    Main obstacles I faced in data preparation phase was inconsistency in episode numeration in databases. In schrute database all double series count as one.
+    In database with IMDB rating some double episodes count as one, while others as two.
+    I decided to use schrute numeration since I don't know how to separate script for double episode in two parts (except by doing it by hand).
+    I merged some episodes in the IMDB database and changed numeration for the rest.
     As soon as all numeration was fixed, I was able to combine this two databases in one.
 </p>
 <p style="display:inline; width:100%; text-align:left">
-    Data cleaning included transformation of writer and director into categorical type and extracting month of release from air date.
+    Data cleaning included transformation of writer and director names into categorical type and extracting month of release from air date.
 </p>
 
 <!--//////////////////////////////////////////////-->

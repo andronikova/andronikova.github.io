@@ -323,12 +323,14 @@ i:hover{
 
 /* Close Button */
 .close {
-  color: #aaa;
+  color: #222f5b;
+  text-color: #222f5b;
   font-size: 28px;
   font-weight: bold;
   position: absolute;
   top: 10px;
   right: 50px;
+  border: 3px solid #222f5b;
 }
 
 .close:hover,
@@ -363,4 +365,5 @@ pre {
 
 p {
     font-size:14pt;
+    align: justify;
 }
