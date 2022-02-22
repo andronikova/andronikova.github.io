@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32902e80-a174-48f9-9bd7-158bf52d2214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/office_data_analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/office_data_analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pics/my_website.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/my_website.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/corr_characters_words.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/corr_characters_words.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/dialog_properties.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/dialog_properties.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/final_model_results.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/final_model_results.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/freaction_of_words_for_seasons.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/freaction_of_words_for_seasons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/rating_hist.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/rating_hist.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/rating_season.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/rating_season.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/total_number_of_lines_dialog.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/total_number_of_lines_dialog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/total_words_for_characters.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/total_words_for_characters.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/words_characters.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/words_characters.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/office/words_hist.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/office/words_hist.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +56,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/office_data_analysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="73" column="70" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
+            <state relative-caret-position="178">
+              <caret line="447" column="92" selection-start-line="447" selection-start-column="92" selection-end-line="447" selection-end-column="92" />
               <folding>
                 <element signature="e#61#116#0" expanded="true" />
                 <element signature="e#1496#1547#0" expanded="true" />
                 <element signature="e#2904#2955#0" expanded="true" />
                 <element signature="e#3034#3102#0" expanded="true" />
+                <element signature="e#5766#5817#0" expanded="true" />
+                <element signature="e#6772#6790#0" expanded="true" />
+                <element signature="e#9310#9328#0" expanded="true" />
+                <element signature="e#14408#14426#0" expanded="true" />
+                <element signature="e#14883#14901#0" expanded="true" />
+                <element signature="e#14762#14813#0" expanded="true" />
+                <element signature="e#21148#21216#0" expanded="true" />
+                <element signature="e#15298#15349#0" expanded="true" />
+                <element signature="e#22484#22535#0" expanded="true" />
+                <element signature="e#17132#17183#0" expanded="true" />
+                <element signature="e#16704#16722#0" expanded="true" />
+                <element signature="e#20497#20515#0" expanded="true" />
+                <element signature="e#20705#20723#0" expanded="true" />
+                <element signature="e#22770#22821#0" expanded="true" />
+                <element signature="e#22933#22951#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -247,6 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,13 +289,23 @@
             <path>
               <item name="andronikova.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="andronikova.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="andronikova.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="andronikova.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pics" type="462c0819:PsiDirectoryNode" />
+              <item name="office" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="andronikova.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="andronikova.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="resume" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,7 +350,7 @@
       <window_info x="515" y="-933" width="672" height="554" id="DB Browser" order="0" sideWeight="0.4795009" side_tool="true" weight="0.17448777" />
       <window_info id="Structure" order="1" sideWeight="0.4508547" side_tool="true" weight="0.14149444" />
       <window_info id="Favorites" order="2" sideWeight="0.40894568" side_tool="true" weight="0.1870456" />
-      <window_info content_ui="combo" x="1163" y="-533" width="232" height="360" id="Project" order="3" sideWeight="0.5501066" weight="0.14889124" />
+      <window_info content_ui="combo" x="1163" y="-533" width="232" height="360" id="Project" order="3" sideWeight="0.5501066" weight="0.11685215" />
       <window_info anchor="bottom" id="DB Execution Console" order="0" visible="true" weight="0.29166666" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32882413" />
@@ -525,13 +557,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/office_data_analysis.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="73" column="70" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
+        <state relative-caret-position="178">
+          <caret line="447" column="92" selection-start-line="447" selection-start-column="92" selection-end-line="447" selection-end-column="92" />
           <folding>
             <element signature="e#61#116#0" expanded="true" />
             <element signature="e#1496#1547#0" expanded="true" />
             <element signature="e#2904#2955#0" expanded="true" />
             <element signature="e#3034#3102#0" expanded="true" />
+            <element signature="e#5766#5817#0" expanded="true" />
+            <element signature="e#6772#6790#0" expanded="true" />
+            <element signature="e#9310#9328#0" expanded="true" />
+            <element signature="e#14408#14426#0" expanded="true" />
+            <element signature="e#14883#14901#0" expanded="true" />
+            <element signature="e#14762#14813#0" expanded="true" />
+            <element signature="e#21148#21216#0" expanded="true" />
+            <element signature="e#15298#15349#0" expanded="true" />
+            <element signature="e#22484#22535#0" expanded="true" />
+            <element signature="e#17132#17183#0" expanded="true" />
+            <element signature="e#16704#16722#0" expanded="true" />
+            <element signature="e#20497#20515#0" expanded="true" />
+            <element signature="e#20705#20723#0" expanded="true" />
+            <element signature="e#22770#22821#0" expanded="true" />
+            <element signature="e#22933#22951#0" expanded="true" />
           </folding>
         </state>
       </provider>

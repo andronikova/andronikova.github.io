@@ -1,9 +1,9 @@
 ---
 layout: default
-title: The Office data analysis
+title: Why we love The Office: that's what data science said
 ---
 
-<h1 style="display:inline; width:100%; text-align: center;">Why we love office</h1>
+<h1 style="display:inline; width:100%; text-align: center;">Why we love The Office: that's what data science said</h1>
 
 <br>
 <p class="quote"> <em>“Sometimes I’ll start a sentence, and I don’t even know where it’s going. I just hope I find it along the way.” - Michael Scott</em></p>
@@ -89,44 +89,10 @@ All remaining properties were used in episode characterization.
 
 <p>
     Preprocessing of text included tokenisation, deleting non-alphabetic symbols and sometimes deleting stop words (common words, which do not provide useful information).
-    My function for text preparation.
 </p>
 
 
-
-<pre><code class="language-python">
-# returns bag of words
-def prepare_text(text, stop=True):
-    words = nltk.word_tokenize(text)
-
-    words=[word.lower() for word in words if word.isalpha()]
-
-    if stop:
-        words = [w for w in words if not w in stop_words]
-
-    return words
-</code></pre>
-
-<p style="display:inline; width:100%; text-align:left">First feature I wanted to extract was the number of words for each episode. I didn't delete stop words for this calculation.</p>
-
-
-<pre><code class="language-python">
-df['words'] = 0
-
-for season in range(1,10):
-    episodes = np.sort(df[df.season==season].episode.unique())
-
-    for episode in episodes:
-        text_row = ' '.join( word for word in script[(script.season==season) & (script.episode==episode)].text)
-
-        text = prepare_text(text_row,stop=False)
-
-        df.loc[(df.season==season) & (df.episode==episode),'words'] = len(text)
-
-</code></pre>
-
-
-<p>
+<p style="display:inline; width:100%; text-align:left">First feature I wanted to extract was the number of words for each episode. I didn't delete stop words for this calculation.
     There are two distinct areas in distribution of words, corresponding to normal-length episodes and double episodes.
     For normal episodes mean number of words is 2812, for double episodes it is 5329 (median is 5200).
     It means, in double episode characters do not speak twice as much as in normal, but slightly less.
@@ -134,7 +100,8 @@ for season in range(1,10):
 
 <img class="article" src="pics/office/words_hist.png" style="width:50%;">
 
-<p style="display:inline; width:100%; text-align:left">Another interesting feature is the number of words for each character. Below total number of words across all episodes is shown for most talkative characters.</p>
+<p style="display:inline; width:100%; text-align:left">Another interesting feature is the number of words for each character.
+    Below total number of words across all episodes is shown for 20 most talkative characters.</p>
 
 <img class="article" src="pics/office/total_words_for_characters.png" style="width:50%;">
 
@@ -150,38 +117,17 @@ for season in range(1,10):
     I ended up with a percentage of how many words each character said relative to all the words said in the episode.
 </p>
 
-<pre><code class="language-python">
-for person in characters:
-    df[person + '_words'] = np.nan
-
-    for season in range(1,10):
-        episodes = np.sort(df[df.season==season].episode.unique())
-
-        for episode in episodes:
-            text_row = ' '.join( word for word in script[(script.season==season) & (script.episode==episode) & (script.character==person)].text)
-
-            # do not delete stop words
-            text = prepare_text(text_row, stop=False)
-
-            # total words in the episode
-            total_words = df[(df.season==season) & (df.episode==episode)].words
-
-            # calculate precentage and save in df
-            df.loc[(df.season==season) & (df.episode==episode),[person + '_words']] = 100*len(text)/total_words
-
-</code></pre>
-
 
 
 <p>
     In the figure below number of words of most talkative characters is shown as fraction of total words in all episodes of a given season.
-One can clearly see that share of airtime when Michael speaks decreases almost linearly with the time.
-    But as long as Michael stayed on the show, the free time was taken up by secondary characters, not the main.
+    One can clearly see that share of airtime when Michael speaks decreases almost linearly with the time.
+    But as long as Michael stayed on the show, the free time was taken up by secondary characters, not the primary.
     That is, the airtime of Dwight, Jim and Pam didn't change a lot.
     Only during two last seasons Dwight and Andy involvement increased drastically in an attempt to fill in the emptiness after Michael's leaving.
 </p>
 
-<img class="article" src="pics\office\freaction_of_words_for_seasons.png" style="width:50%;">
+<img class="article" src="pics\office\freaction_of_words_for_seasons.png" style="width:70%;">
 
 <p>
     It was also interesting to me, how the number of words for each characters correlates with the number of words for other characters.
@@ -192,13 +138,13 @@ One can clearly see that share of airtime when Michael speaks decreases almost l
 
 <p>
     The first thing that catches my eye is that Michael has mostly zero or negative correlations with people.
-    It seems to be true, because Michael tries to dominate in all conversations and and tends to occupy all the air time.
-    The only positive correlations he have are with Jan and Holly with whom he had romantic relationships.
+    It seems to be true, because Michael tries to dominate in all conversations and tends to occupy all the air time.
+    The only positive correlations he has are with Jan and Holly with whom he had romantic relationships.
 </p>
 
 <p>
     But this correlation table is averaged through all the seasons.
-    For each season picture differs cardinally. For example, let's look at Michael and Dwight fraction of words (defined similar to the table above) for first six seasons.
+    For each season picture differs cardinally. For example, let's look at Michael and Dwight fraction of words for each episode for first six seasons.
     In first and third season we can see clear linear dependency: the more Michael talks the less Dwight talks and vice versa.
     In season 2 and 4 the speech of Dwight occupies approximately the same part of the episode and doesn't correlate with Michael words
 </p>
@@ -206,110 +152,27 @@ One can clearly see that share of airtime when Michael speaks decreases almost l
 <img class="article" src="pics/office/Michael_Dwight_words.png" style="width:90%;">
 <br>
 <img class="article" src="pics/office/Michael_Dwight_words_2.png" style="width:90%;">
-
+<br><br>
 <p>
     Another feature that could be important in rating prediction is number of dialogues between characters.
-In schrute dataset there are only sequences of phrases told by character. There are no scene descriptions or timing of each line.
+In schrute dataset there are only sequences of phrases told by character.
+    There are no scene descriptions or timing of each line that could help identify beginning and end of the dialogue.
     So, in searching for dialogues I could only rely on sequence of lines. Here I assumed that if characters' phrases alternate, these characters talk to each other.
-    I counted as a dialog a set of at least 4 lines of two characters where characters' lines alternate.
+    I counted as a dialog a set of at least 4 lines said by two characters where characters' lines alternate.
     Using this technique I may count last line of the previous dialog as the first line of the following one, so, the error of number of lines in dialog could be +- 2 lines.
 
 </p>
 
-<pre><code class="language-python">
-# create array of names in order of they appearance in script
-def who_is_speaking(df, season, episode):
-    script_tmp = df[(df.season==season) & (df.episode==episode)]
-
-    speaking = []
-    for index in script_tmp.index:
-        speaking.append(script_tmp[script_tmp.index==index].character.values[0])
-
-    return speaking
-
-</code></pre>
-
-<pre><code class="language-python">
-characters_dialog = []
-
-# create array with column's name
-# create  empty column in database
-for name1 in characters:
-    for name2 in characters[characters.index(name1) + 1:]:
-        names = np.sort([name1, name2])
-
-        column_name = names[0] + '_' + names[1] + '_dialog'
-        df[column_name] = 0
-        characters_dialog.append(column_name)
-
-df['dialog_mean_length'] = np.nan
-df['number_of_dialog'] = np.nan
-
-for season in range(1,10):
-    episodes = np.sort(df[df.season==season].episode.unique())
-
-    for episode in episodes:
-        # save all speakers
-        speaking = who_is_speaking(script,season, episode)
-
-        dialog_length = []
-        i = 0
-
-        while i < len(speaking)- 1:
-            names = np.unique(speaking[i:i+2])
-
-            # count dialogs only for 20 most talkative characters
-            if all([name in characters[:20] for name in names])==False:
-                i += 1
-                continue
-
-            # check that two different persons speak
-            if len(names)==2:
-                max_shift = len(speaking) - i
-
-                # search for end of dialog
-                for shift in range(2,max_shift):
-                    new_names = np.unique(speaking[i:i+shift])
-
-                    #condition to stop search : new name appears
-                    if any([name not in names for name in new_names]):
-                        break
-
-                dialog_length.append(shift-1)
-
-                # save only dialog with 4 replicas
-                if shift > 4:
-                    names = np.sort(names)
-                    key = names[0] + '_' + names[1] + '_dialog'
-
-                    df.loc[(df.season==season) & (df.episode==episode), [key]] += shift-1
-
-                i += shift - 1
-
-            # if speaks only one person: go to to next replace
-            else:
-                i += 1
-
-        # save statistics of dialog
-        df.loc[(df.season==season) & (df.episode==episode), 'dialog_mean_length'] = np.mean(dialog_length)
-        df.loc[(df.season==season) & (df.episode==episode), 'number_of_dialog'] = len(dialog_length)
-
-# normalisation of dialog number for double series
-df.loc[df.double == 1,['number_of_dialog']] = df[df.double == 1].number_of_dialog.apply(lambda x : x/2)
-
-</code></pre>
-
-
 <p>
-
-Let's look how dialogues change with the time.
+    I've calculated number of dialogues in each episode (divided by 2 for double episodes) and length of dialogues.
+    Let's look how dialogues change with the time.
     It seems that from season to season dialogues become shorter and in each episode number of different dialogues between different characters increase.
     So, in late seasons there are a lot of short dialogues.
 
 </p>
 
 
-<img class="article" src="pics/office/dialog_properties.png" style="width:90%;">
+<img class="article" src="pics/office/dialog_properties.png" style="width:50%;">
 
 <p>
     Keeping in mind Michael's talkativeness one could expect all Michael's dialogues to be on the top of the list.
@@ -317,77 +180,17 @@ Let's look how dialogues change with the time.
     This is probably because Michael speaks a lot by himself and less in dialogues (a negative correlations of spoken words between Michael and other characters proofs this explanation).
 </p>
 
-<img class="article" src="pics/office/total_number_of_lines_dialog.png" style="width:90%;">
+<img class="article" src="pics/office/total_number_of_lines_dialog.png" style="width:70%;">
 
 <p>
     Using dialog information we can have some conclusion about characters' relationships.
     For this I drew chord diagram of dialog lengths between characters, where width of lines represents number of lines.
-    You can see below my code for creation chord diagram. At first step I saved dialog information in graph format.
     For simplicity  and readability I used threshold by 5% of the longest dialog (between Michael and Dwight),
     so, you see only dialog with total lines more than 113.
-    The second part is drawing the chord diagram using <a href="https://github.com/ericmjl/nxviz">nxviz library</a>.
+    I drew the chord diagram using <a href="https://github.com/ericmjl/nxviz">nxviz library</a>.
 
 </p>
 
-<pre><code class="language-python">
-# creating graph where nodes are characters, edges - dialogues between them
-P = nx.Graph()
-
-treshold = 0.05 * df.Dwight_Michael_dialog.sum()
-arr = []
-
-for name in characters[:20]:
-    P.add_node(name)
-
-    for cols in characters_dialog_non_zero:
-        # choose only one of the 20 main characters
-        if name in cols:
-            other_name = cols.replace(name,'').replace('_dialog','').replace('_',"")
-
-            if other_name in characters[:20]:
-                # claculate weigth as sum of all lines in all dialogues
-                weight = df.sum()[cols]
-
-                # add to graph only relatively long dialog
-                if weight > treshold:
-                    P.add_edge(name, other_name, weight = weight)
-                    arr.append(df.sum()[cols])
-
-# rescaling weight
-for u,v in P.edges:
-    P[u][v]['weight_scaled'] = P[u][v]['weight']/100
-
-# creating properties for nodes
-for v in P:
-    P.nodes[v]["name"] = v
-    P.nodes[v]["size"] = 0.5
-    P.nodes[v]["group"] = groups[v]
-</code></pre>
-
-
-<pre><code class="language-python">
-# drawning the chord diagramsave
-fig, ax = plt.subplots(figsize=(12,12))
-
-pos = nv.nodes.circos(P, group_by='name',size_by='size',color_by='group')
-annotate.circos_labels(P, group_by='name')
-
-nv.edges.circos(P, pos)
-
-# edge style
-et = nv.utils.edge_table(P)
-edge_color = nv.edges.edge_colors(et, nt=None, color_by=None, node_color_by=None)
-alpha = nv.edges.transparency(et, alpha_by=None)
-
-
-patches = nv.lines.circos( et, pos, edge_color=edge_color, alpha=alpha, lw=et["weight_scaled"], aes_kw={"fc": "none"} )
-for patch in patches:
-    ax.add_patch(patch)
-
-nv.plots.rescale(P)
-nv.plots.aspect_equal()
-nv.plots.despine()
-</code></pre>
 
 <p>
     Color denotes groups of characters divided by the number of words spoken: green - Michael, yellow - other main characters (total number of spoken words more than 40000),
@@ -397,13 +200,13 @@ nv.plots.despine()
 <img class="article" src="pics/office/chord_dialog.png" style="width:90%;">
 
 <p>
-    The most social person again is Michael.
+    The most communicative person was once again Michael.
     Most of Michael dialogues happen with Dwight. With Jim or Pam he talks twice less than with Dwight.
     Among secondary characters most popular conversation partners for Michael are Jan and Holly.
 </p>
 
 <p>
-    After Michael the most active connections are dialogues of Jim with Pam and Dwight.
+        After Michael, the most active relationships are between Jim and Pam, and Jim  and Dwight.
     Having such active dialogues with Pam and Dwight Jim is quite uncommunicative with other collegues.
     Dwight and Andy are more social active, having a lot of connections with secondary characters.
     It is also funny to note, that Toby performs duties of human resource representative very poorly,
@@ -420,12 +223,11 @@ nv.plots.despine()
 
 <p>
     By counting appearances of 'sorry' I found out that Erin is the most apologizing character.
-    By counting appearances of 'thank' I tried to find most polite character, and it was Angela (or probably I just found the most passive-aggressive character).
-    Title of the most rude character goes to Meredith and Kelly.
+    Title of the most rude character goes to Kelly.
     Surprisingly, Stanley is the one who talks the most about work and day to day duty (I mean paper).
     It is not that unexpected actually since Stanley doesn't talk about his private life and work is the only thing that unites him with the others.
-    Oscar, as a responsible accountant, talks about money a lot. Women are in the lead when it comes to talking about love, but most romantic among them is Holly.
-    Finally, Jan is the one obsessed the most about Michael (Phyllis, what are you doing in the second place?).
+    Dundie for most romantic person goes Holly.
+    Finally, Jan is the one obsessed the most about Michael, 2% of her words are Michael' name.
 
 </p>
 
@@ -456,22 +258,25 @@ nv.plots.despine()
   </div>
 </div>
 
-<p>
-I didn't show here all the features I extracted. If you are interested in details, pleace, look at jupyter notebook (link).
+<p style="display:inline; width:100%; text-align:left">
+    <br><br>
+I didn't show here all the features I extracted.
 The other features I calculated was:
 </p>
 
 
 <span style="display:inline; width:100%; text-align:left; font-size:14pt;">
     <ul>
-        <li>how much one character pronounces the name of other (i made this only for Michael, Jam and Pam).</li>
-        <li>appearance of some words in the script</li>
-        <li>appearance of the joke "that's what she said"</li>
+        <li>how much one character pronounces the name of other (made this only for Michael, Jam and Pam).</li>
+        <li>appearance of some words in the script (e.g., "wedding","money", "what's what she said" )</li>
         <li>counting the director's instructions (such as laughing, crying and so on)</li>
     </ul>
 </span>
 
-
+<p style="display:inline; width:100%; text-align:left">
+     If you are interested in details,
+    look at <a href="https://github.com/andronikova/the_office_data_analysis/blob/master/FV.ipynb">Jupyter Notebook</a>.
+</p>
 
 
 
@@ -498,45 +303,11 @@ The other features I calculated was:
 </div>
 
 <p style="display:inline; width:100%; text-align:left">
-    Let's calculate correlation with rating for each feature discussed before.
-    Only strong correlations are shown below:
-</p>
-
-<p style="color:red; display:inline; width:100%; text-align:left">
-    0.426 Michael_words<br>
-    0.369 double<br>
-    0.32 words<br>
-    0.315 crying<br>
-    0.229 director_Paul_Feig<br>
-    0.221 writer_Greg_Daniels<br>
-    0.205 sigh<br>
-    0.204 Michael_about_Jan<br>
-</p>
-<p style="color:blue; display:inline; width:100%; text-align:left">
-    -0.216 writer_Owen_Ellickson<br>
-    -0.218 Nellie_Phyllis_dialog<br>
-    -0.225 Andy_Nellie_dialog<br>
-    -0.233 Jim_Nellie_dialog<br>
-    -0.233 director_Claire_Scanlon<br>
-    -0.288 Dwight_Nellie_dialog<br>
-    -0.296 Robert_words<br>
-    -0.302 Andy_Erin_dialog<br>
-    -0.338 Andy_words<br>
-    -0.362 Erin_words<br>
-    -0.425 Nellie_words<br>
-</p>
-
-<p>
-    It seems viewers really like when Michael is talking and equally don't like when Nellie is talking.
+    I calculated correlation of rating with each feature discussed before.
+    Only strong correlations are shown in figure below.
+        It seems viewers really like when Michael is talking and equally don't like when Nellie is talking.
     Erin's and Andy's talking are not highly scored as well.
-    There are high correlations with number of words in episode and the length of episode (double or not).
-    As you can see in the figure below, all double episodes are scored very high.
-    But for normal length episodes there is almost no correlation of the number of words and the rating
-    (df[df.double==0].corr().rating.words = -0.006,  df[df.double==1].corr().rating.words = -0.117).
-
 </p>
-
-<img class="article" src="pics/office/rating_words.png" style="width:50%;">
 
 <p>
     There are several writers and directors who have strong correlation with ratings.
@@ -548,6 +319,11 @@ The other features I calculated was:
     Does it mean that viewers like when characters suffer?
 </p>
 
+<img class="article" src="pics/office/corr_rating.png" style="width:60%;">
+
+
+
+
 
 <!--//////////////////////////////////////////////-->
 <br><br><br><br>
@@ -557,99 +333,104 @@ The other features I calculated was:
 
 <p>
     We can finally get to the most interesting part, namely the creation of model to predict rating.
-    The main criteria here for me is the interpretability of the model, so the most obvious choice was regression model.
-    I used statsmodels library with ordinary least squares fitting.
-    To test my model's performance  I split all episodes into training and testing datasets.
+    The main criteria for model  for me was its interpretability, so the most obvious choice was regression model.
 </p>
 
 <p>
-    After extensive feature engineering I had 306 features I could use for model.
-    It is too much to have an easily interpretable model, so I spent some time searching for the most important features.
-    At first I tried to choose features using my domain knowledge and some intuition.
-    Of course I realized that this way is not optimal at all, that's why I also used random forest algorithm as an alternative way to find those features.
+   After extensive feature engineering I had 305 features I could use for model.
+    This number is too high to build interpretable model, so feature selection  is required.
+Another reason for feature selection is the strong intercorrelation of some features
+    (e.g.,  the number of words said by Michael is negatively correlated with number of words said by almost all main characters).
+
 </p>
-
-
-<h3 style="display:inline; width:100%; text-align:left">Choosing by hand</h3>
-<p>Main selection criteria were correlation with rating and number of appearances in episodes.
-    I chose features with absolute value of correlation coefficient higher than 0.1 and which appear in at least 60 episodes (2/3 of total number of episodes).
-    The latter rule I violated in case of directors and writers having high negative correlation coefficient, since such authors work only on few episodes. </p>
-<p>After collection of all features satisfying these criteria, I checked them for inter-correlation and deleted some.
-    The remaining features were:
-    <em>double, what_she_said, leaving, party, meeting, news, crying, sigh, kiss, director_Paul_Feig, director_Ken_Kwapis, writer_Charlie_Grandy, Michael_words,
-        Creed_words, Jim_about_Pam, Jim_about_Dwight.</em>
-</p>
-<p>
-    These features were used in linear regression model with target value 'rating'.
-    Linear regression model was fitted with R square=0.433, root mean square error computed for test data was 0.456.
-    Distribution of residuals was shifted to positive values reflecting tendency of predicted values to be higher than real.
-    Another drawback of this set of features is high p-value of some of them underlining that regression coefficients of those features was probably chosen by chance.
-</p>
-
-
-<img class="article" src="pics/office/model_by_hand.png" style="width:90%;">
-<p>I excluded features with high p-value and this cleaning slightly reduced R square and improved RMSE (0.445).
-    Fitted coefficients:
-</p>
-
-<table style="display:inline; width:100%; text-align:left; font-size:14pt;">
-    <tbody>
-        <tr> <td>leaving</td> <td>4.208669</td> </tr>
-        <tr> <td>double</td> <td>0.545382</td> </tr>
-        <tr> <td>crying</td> <td>0.113989</td> </tr>
-        <tr> <td>Jim_about_Dwight</td> <td>0.097600</td> </tr>
-        <tr> <td>Michael_words</td> <td>0.014956</td> </tr>
-        <tr><td>news</td><td>-1.546528</td></tr>
-        <tr><td>Intercept</td><td>7.649490</td></tr>
-    </tbody>
-</table>
-<br>
-<p>So, in this model the rating value is mostly defined by how much word "leaving" was used in character's speech.
-    It is also quite important for high rating for word 'news' to be used as little as possible.
-    Double episodes have higher rating. And it seems very important for an episode to include crying.
-    Although the model has a pretty good predictive power (up to half of score accuracy),
-    the strong dependence on the use of specific words seems very suspicious and not much explaining to me.
-    That's why I used random forest algorithm to find better optimized set of features.
-</p>
-
-<h6 style="display:inline; width:100%; text-align:left">Using random forest to select features</h6>
-<p>
-    I used random forest from sci-kit learn library.
-    All 306 features were used as input in the model.
-    Random forest algorithm provides quite the same RMSE (0.448),
-    distribution of residuals is not offset with respect to zero but has long tail at negative values meaning that we underestimate rating for several episodes.
-</p>
-
-<img class="article" src="pics/office/tandom_forest_results.png" style="width:90%;">
-
-<img class="article" src="pics/office/feature_importance.png" style="width:90%;">
 
 <p>
-    Among most important features were the total number of words and the number of Michael words.
-    I took 6 most important features for regression model and ended up with RMSE 0.44 and quite symmetric but a little shifted residuals.
+    I used Lasso regression to select the features with the highest predictive power of the rating.
+    I think Lasso suits me very well cause it leaves only important features ( by assigning zero weights to less important )
+    and deals with correlated features by deleting on of them.
+    In Lasso regression the number of features retained for the model is determined by alpha coefficient.
+    I used LassoCV model which selects the best alpha value by cross-validation.
+</p>
+
+<p>
+    Data preparation for Lasso included splitting the data into train and test sets and scaling them.
+    I used StandardScaler from sklearn library.
+    I first set up the scaling on the training data and then applied it to train and to test datasets.
+    This way I avoided leakage of test data into training dataset.
+</p>
+
+<p>
+
+Last thing I did before training the model was to remove  features appeared in only  a few episodes.
+    For example, I don't want to have  feature in my model appearing in  only  two episodes.
+This makes my model less informative in terms of describing the average episode rating.
+    To select the minimum number  of episodes in which features should appear, I used cross validation with LassoCV estimator.
+    It shows that RMSE is weakly depend on threshold number of episodes, increasing notable  only for the zero threshold and for the very high threshold.
+    I chose 20 episodes as the threshold number.
+    Thus, only features appearing in more than 20 episodes (15%) will be taking into account.
+    Applying this rule I selected 70 parameters out of 305.
+</p>
+
+<p>
+    On the graphs below you can see a comparison of the rating predicted for test data and actual rating.
+    For episodes with an average rating the predictions are quite good, with the most noticeable difference observed for high and low ratings.
+    The distribution of residuals is symmetric and has almost no bias.
+    The right-hand graph illustrates the residuals sorted by episode appearance, and shows that there is strong tendency to predict higher rating for episodes from last season.
+    This could mean that for the last seasons I haven't found proper feature which negatively influence the rating.
+</p>
+
+<img class="article" src="pics/office/lasso_result.png" style="width:90%;">
+
+<p>
+    Out of 70 features LassoCV selected 18 most important.
+    Let's look at all of these features. According to this model high rating episodes should contain a lot of talking since 'words' feature are second most important.
+    But not Nellie's talking.  Nellie occurs to be the character  having the worst impact on the rating.
+    Among other characters causing bad rating are Andy and Erin as well as their dialogues.
+    In contrary, Michael speeches  positively affect the rating. Viewers also very likes Jim speaking about Dwight.
+
+</p>
+
+<p>
+    Interesting that most popular episodes are based on crying
+    (this feature shows how much word 'crying' occurs in director notes and, consequently, in the performance of the actors).
+    Another action ranked among the important is screaming.
+
+</p>
+
+<p>
+    Features 'death', 'money','leaving','wedding','sales','love','news' show how much these words appear in the character speech.
+    It seems, that most popular episodes include talking about death and money.
+    Predictably, talking about wedding is also important for good rating.
+    People really love episodes with a lot of dialogs.
+    Dialogues do not have to be long since 'number_of_dialog' only counts number of dialogues, but not their length.
+
+</p>
+<img class="article" src="pics/office/lasso_coeff.png" style="width:70%;">
+
+<p>
+    I tried use all 18 features in linear regression model.
+    I used statsmodels library with ordinary least squares fitting, because it provides a lot of information about fitting.
+    It provides RMSE = 0.56 and adjusted R -square = 0.538. So, my model explains only half of variance in rating.
+    Probably, it is not so bad results, since I used only information extracted from script.
+    Obliviously, there are much more parameters influencing rating!
+</p>
+<p>
+    Looking at p-values for each feature calculated by statsmodels I saw that some of them are quite high.
+    I decided to check the optimal number of parameters for my simple linear model.
+    I used cross-validation on scikit-learn ordinary least square model.
+    Based on calculation of RMSE and R-squared I chose 7 features to be the optimal number.
+</p>
+
+<p style="display:inline; width:100%; text-align:left">
+    My final linear regression model with 7 features provides RMSE=0.469 and adjusted R-squared = 0.467.
 </p>
 
 <img class="article" src="pics/office/final_model_results.png" style="width:90%;">
 
-<table style="display:inline; width:100%; text-align:left; font-size:14pt;">
-    <tbody>
-        <tr> <td>crying</td> <td>0.131839</td> </tr>
-        <tr> <td>Nellie_words</td> <td>-0.048064</td> </tr>
-        <tr> <td>Andy_words</td> <td>-0.010342</td> </tr>
-        <tr> <td>laughing</td> <td>0.008227</td> </tr>
-        <tr> <td>Michael_words</td> <td>0.007703</td> </tr>
-        <tr> <td>words</td> <td>0.000186</td> </tr>
-        <tr> <td>Intercept</td> <td>7.476538</td> </tr>
-    </tbody>
-</table>
-<br><br>
-<p>
-    So, the results are quite funny: to have high rating episode should contain a lot of crying  and laughing, there should be Michael but not Nellie or Andy.
-    To find the best episode according to this model I applied filter maximizing crying in episode.
-    It appears to be episodes with Michael leaving and final episode. Both of them have really high rating.
-</p>
+<br>
 
-<img class="article" src="pics/office/max_crying.png" style="width:90%;">
+
+
 
 <!--//////////////////////////////////////////////-->
 <br><br><br><br>
@@ -657,63 +438,52 @@ The other features I calculated was:
 <p class="quote"> <em>"I am running away from my responsibilities. And it feels good."</em> - Michael Scott</p>
 
 <p>
-    Of course, my analysis does not pretend to be complete and deep.
-    Many other episode's properties can influence the rating, for example number of good jokes or dramatic plot twists.
-    But I am happy with my results, since using only simple word counting I was able to predict episode rating with quite good accuracy.
-</p>
-
-<p>
     At the end, we are able to name most important features of episode, influencing rating.
-    They include how much characters cry and laugh in the episode, number of words, how much Michael talks and how less Nellie and Andy talk.
-</p>
-
-<p style="display:inline; width:100%; text-align:left">
-    Obtained equation of episode rating is follow:
+    They include how much characters cry and talking about death, number of words, how much Michael talks and how less Nellie and Andy talk.
+    My equation for high rated episode would be:
 </p>
 
 <p>
-    rating = 7.477 + 0.123 * crying - 0.048 * Nellie_words - 0.01 * Andy_words + 0.008 * laughing + 0.0077  * Michael_words + 0.000186 * words.
+    <b>rating</b> = 7.3227 - 0.0565 * <b>Nellie_words</b> + 0.0002 * <b>words</b> + 0.1467*crying - 0.0135 * <b>Andy_words</b> +
+    0.0063 * <b>Michael_words</b> + 5.8557 * <b>death</b> + 0.1633 * <b>Jim_about_Dwight</b>
+
 </p>
 
 <p>
     Using this equation one can try to construct ideal episode scored as 10/10 by viewers.
-The method is simple - maximize the parameters with a positive coefficients and minimize the parameters with negative coefficients.
+    My approach was simple - maximize the parameters with a positive coefficients and minimize the parameters with negative coefficients.
 </p>
 
 <p>
-Let's start by putting Nellie_words and Andy_words to zero.
-    Assume that "Goodbye, Michael" and "Finale" are episodes with maximum  allowable amount of tears, so, crying would be equal to 6.
-    Maximum 'laughing'  appeared in 'Christmas Wishes' episode and was 23. I didn't want to be unrealistic and put laughing = 25.
-    Maximum words number appeared in episode was 6029 (it was double episode), so, let's put words = 6000.
-    Recall, that "Michael_words" feature shows what proportion of the words in the episode were said by Michael.
-    I suggest choosing the maximum possible number, i.e. 100% of the words in episode are said by Michael.
-    So, we can calculate rating of the best episode now:
+    I started by putting Nellie_words and Andy_words to zero.
+    Assuming that "Goodbye, Michael" and "Finale" are episodes with maximum  allowable amount of tears, I choose crying to be equal to 6.
+    Maximum words ever appeared in episode was 6029 (it was double episode), so, I put words = 6000.
+    "Michael_words" feature shows what proportion of the words in the episode were said by Michael.
+    I choose it really high, and assumed that 80% of the words in episode are said by Michael.
+    "Jim_about_Dwight" shows number of appearance of DWight name in Jim lines in proportion to number of words said by Jim.
+    I assumed that 10% of Jim's words were about Dwight.
+    Last parameter (count of "death" appearance in the script) I used to adjust rating value to be exactly 10.
+    It turns out that 10% of all words told in episode should be "death". Let's assume that it is possible.
 </p>
 
 <p>
-    rating = 7.477 + 0.123 * 6 - 0.048 * 0 - 0.01 * 0 + 0.008 * 25+ 0.0077  * 100 + 0.000186 * 6000 = 10.3
+    So, we can calculate rating of the best episode now:<br>
+
+    <b>rating</b> = 7.3227 - 0.0565 * 0 + 0.0002 * 6000+ 0.1467 * 6 - 0.0135 * 0 +  0.0063 * 0.8+ 5.8557 * 0.1 + 0.1633 * 0.1 = 10
 </p>
 
 <p>
-    The episode appeared to be too good and had 10.3 out of 10.
-    To adjust this value, we can reduce some features values.
-    In order to make the episode realistic lets's reduce Michael word and add some Andy word.
-    Episode with 70% of Michael (maximum value appeared in episode was 65%) words and 5% of Andy words received 10 rating.
+    To sum up, the ideal episode will be double episode, containing a lot of Michael (80% of talking will be done by Michael),
+    a lot of crying (probably most of them would be done by Michael) a lot pf talking about death (again, Michael)
+    and just a little bit of Jim planning prank on Dwight.
+That's my recipe.
 </p>
-
 <p>
-    rating = 7.477 + 0.123 * 6 - 0.048 * 0 - 0.01 * 5 + 0.008 * 25+ 0.0077  * 70 + 0.000186 * 6000 = 10.02
+    Of course, my analysis does not pretend to be complete and deep.
+    Many other episode's properties can influence the rating, for example number of good jokes or dramatic plot twists.
+    But I am happy with my results, since using only simple word counting I was able to predict episode rating with quite good accuracy.
+    <br><br>
 </p>
-
-<p>
-    To sum up, the ideal episode will be double episode, containing a lot of Michael (70% of talking will be done by Michael),
-    a lot of laughing and crying (probably most of them would be done by Michael) and just a little bit of Andy (only 5% of talking).
-One can choose several combinations of parameters that satisfy the highest rating.
-    So, my recipe is not  unique and you can try to construct ideal episode by yourself.
-</p>
-
-
-
 <!--<img class="article" src="" style="width:90%;">-->
 
 
