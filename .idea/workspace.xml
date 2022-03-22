@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/projects.html" line="104" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32902e80-a174-48f9-9bd7-158bf52d2214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ga_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/ga_test.html" afterDir="false" />
-    </list>
+    <list default="true" id="32902e80-a174-48f9-9bd7-158bf52d2214" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ga_test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+            <state relative-caret-position="81">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -468,8 +466,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ga_test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        <state relative-caret-position="81">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
