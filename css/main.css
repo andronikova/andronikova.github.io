@@ -30,7 +30,7 @@ body {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
-    color:#333;
+    /*color:#333;*/
 }
 
 a.nav-link{
@@ -90,14 +90,14 @@ ul.posts li {
     font-size: 1.6em;
     color:gray;
     font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
-    padding:0  15px;
+    padding:0px  15px;
 }
 
 .milestone
 {
     vertical-align:top;
     font-size: 1.2em;
-    color:#333;
+    /*color:#333;*/
     font-family: "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
 
 }
