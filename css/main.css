@@ -4,7 +4,7 @@ body {
 
 .navbar{
     overflow: hidden;
-    background-color: #F1F3F5;
+   /* background-color: #F1F3F5;*/
     top: 10; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 	/* font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; */
