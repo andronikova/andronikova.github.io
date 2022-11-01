@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32902e80-a174-48f9-9bd7-158bf52d2214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/work.html" beforeDir="false" afterPath="$PROJECT_DIR$/work.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education.html" beforeDir="false" afterPath="$PROJECT_DIR$/education.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="249" column="88" selection-start-line="249" selection-start-column="88" selection-end-line="249" selection-end-column="88" />
+            <state relative-caret-position="4471">
+              <caret line="263" column="46" selection-start-line="263" selection-start-column="44" selection-end-line="263" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -61,6 +62,7 @@
                 <element signature="n#style#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -152,28 +154,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/education.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="149" column="39" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="39" />
+            <state relative-caret-position="288">
+              <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
               <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#0;n#div#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#5;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
               </folding>
@@ -192,7 +201,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>details</find>
       <find>stati</find>
       <find>blurb</find>
       <find>row</find>
@@ -222,6 +230,7 @@
       <find>p</find>
       <find>mile</find>
       <find>date</find>
+      <find>12</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -241,11 +250,11 @@
         <option value="$PROJECT_DIR$/projects.html" />
         <option value="$PROJECT_DIR$/office_data_analysis.html" />
         <option value="$PROJECT_DIR$/ga_test.html" />
-        <option value="$PROJECT_DIR$/education.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/contact.html" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/work.html" />
+        <option value="$PROJECT_DIR$/education.html" />
       </list>
     </option>
   </component>
@@ -337,7 +346,7 @@
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32666665" />
       <window_info anchor="bottom" id="GitHub Pull Requests" order="10" weight="0.3293011" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32833335" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49966952" visible="true" weight="0.25666666" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49966952" visible="true" weight="0.17" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -495,37 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/education.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="149" column="39" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#div#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#5;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="249" column="88" selection-start-line="249" selection-start-column="88" selection-end-line="249" selection-end-column="88" />
+        <state relative-caret-position="4471">
+          <caret line="263" column="46" selection-start-line="263" selection-start-column="44" selection-end-line="263" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -558,7 +540,42 @@
             <element signature="n#style#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/education.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#div#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#5;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
